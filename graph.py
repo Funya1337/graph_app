@@ -50,7 +50,8 @@ class Line():
         self.width = width
 
     def createLine(self, x0, y0, x1, y1):
-        self.canvasName.create_line(x0, y0, x1, y1, fill = self.color, width = self.width)
+        num = self.canvasName.create_line(x0, y0, x1, y1, fill = self.color, width = self.width)
+        self.canvasName.tag_lower(num)
 
     def addDataToPoints(self, data):
         self.points.append(data)
@@ -106,7 +107,7 @@ def getCoords(event):
         vertex.clearBuff()
 
 vertex = Vertex(radius, myCanvas, [], 'red')
-line = Line('green', 5, [], myCanvas)
+line = Line('black', 5, [], myCanvas)
 btn = Button(root, text = 'Create Matrix', bd = '5', command = plotGraph)
 clearBtn = Button(root, text = 'Clear Canvas', bd = '5', command = clearCanvas)
 btn.pack(side = 'bottom')
